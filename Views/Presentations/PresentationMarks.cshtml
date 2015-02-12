@@ -1,0 +1,42 @@
+﻿<hr style="margin-top:0px;" />
+           <h3 style="margin:20px 0px; color:#818da1; font-weight:200;">
+           	<i class="entypo-right-circled"></i> 
+				Manage Presentation Marks           </h3>
+
+			<div class="row">
+	<div class="col-md-12">
+    
+    	<!------CONTROL TABS START------->
+		<ul class="nav nav-tabs bordered">
+			<li class="active">
+            	<a href="#list" data-toggle="tab"><i class="entypo-menu"></i> 
+					Manage Marks                    	</a></li>
+		</ul>
+    	<!------CONTROL TABS END------->
+        
+	
+            <!----TABLE LISTING STARTS--->
+            <div class="tab-pane  active" id="list">
+				<center>
+                <form action="/Presentations/updatePresentationMarks" method="post" accept-charset="utf-8">                <table border="0" cellspacing="0" cellpadding="0" class="table table-bordered">
+                	<tr>
+                        <td>Presentation Id</td>
+                        <td>Total marks</td>
+                         <td>Set Wietage</td>
+                      
+                        
+                	</tr>
+                	<tr>
+                        <td>
+                        	
+                             <input type="text" class="form-control" name="pres" id="pid" placeholder="Presentation Id" autocomplete="off"  value=""  required /> 
+                        </td>
+                        <td>
+                        	<input type="number" class="form-control" name="pres marks" id="pmk" placeholder="Total Presentation marks" autocomplete="off"  value=""   />
+                        </td>
+                        <td>
+                             <input type="number" class="form-control" name="Set Weitage" id="q" placeholder="Set Weitage" autocomplete="off"  value=""   />
+                            </td>
+                     </tr>
+                    <td align="center"><input type="submit" value="Manage Marks" class="btn btn-info"/></td>
+                    </form>

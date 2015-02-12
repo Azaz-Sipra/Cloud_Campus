@@ -1,0 +1,170 @@
+﻿@model FypTry.Models.Teacher
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/Jquery-1.11.0.min.js"></script>
+   <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+	<title>Cloud Campus</title>
+   
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.3.custom.min.css"/>
+	<link rel="stylesheet" href="~/Content/entypo.css"/>
+    <link rel="stylesheet" href="~/Content/entypo8421.eot"/>
+     <link rel="stylesheet" href="~/Content/entypo8421.svg"/>
+     <link rel="stylesheet" href="~/Content/entypo8421.ttf"/>
+     <link rel="stylesheet" href="~/Content/entypo8421.woff"/>
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic"/>
+	<link rel="stylesheet" href="~/Content/bootstrap.css"/>
+	<link rel="stylesheet" href="~/Content/neon-core.css"/>
+	<link rel="stylesheet" href="~/Content/neon-theme.css"/>
+	<link rel="stylesheet" href="~/Content/neon-forms.css"/>
+    
+	<link rel="stylesheet" href="~/Content/custom.css"/>
+		<script src="~/scripts/jquery-1.11.0.min.js"></script>
+    <link rel="shortcut icon" href="~/images/favicon.png"/>
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css"/>
+</head>
+<body class="page-body login-page ">
+    <div class="login-container">
+        <div class="login-header login-caret">
+		
+		    <div class="login-content" style="width:100%;">
+			
+			    <a  class="logo">
+				    <img src="~/images/logo.png" height="60" alt="" />
+			    </a>
+			
+			    <p class="description">
+            	    <h2 style="color:#cacaca; font-weight:100;">
+					    Cloud Campus             </h2>
+                    <h4 style="color:#cacaca; font-weight:100;">
+					    A Better Way...             </h4>
+                 </p>
+			      
+                </div>
+
+		</div>
+      </div>
+	
+	<div class="login-form">
+		
+		<div class="login-content">
+			
+		
+    @using (Html.BeginForm("LoginCheck","Home",FormMethod.Post))
+    {
+            
+        <div class="form-group">
+                    <link href="~/Content/c1.css" rel="stylesheet" />
+                   @* @Html.LabelFor(m=>m.User_Name,new {id="name"});*@
+					<div class="input-group">
+						<div class="input-group-addon">
+							
+                            <i class="user icon"></i>
+						</div>
+                        @*@Html.LabelFor(m=>m.User_Name,new {id="name"});*@
+                        @*<div class="form-control">*@
+						@*@Html.TextBoxFor(m => m.User_Name, new { id = "name",placeholder="User Name",value=" ",@class="form-control"})*@
+                            @*</div>*@
+						<input type="text" class="form-control" name="User_Name" id="name" placeholder="User Name" autocomplete="off" data-mask="name" value="" required />
+					    
+                    
+                    </div>
+					
+				</div>
+        <div id="result"></div>
+                        <div class="form-group">
+                    
+					<button type="button" class="btn btn-primary btn-block btn-login" value="submit" id="b2">
+                          <i class="newwindow icon"></i>
+						Check
+					</button>
+				</div>
+        				
+				<div class="form-group" id="h">
+					
+					<div class="input-group">
+						<div class="input-group-addon">
+							
+                            <i class="lock icon"></i>
+						</div>
+						@*@Html.TextBoxFor(m => m.password, new { id = "password",placeholder="password",value=" "})*@
+						<input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" value=""  required/>
+					</div>
+				
+				</div>
+				
+				<div class="form-group">
+                    
+					<button type="submit" class="btn btn-primary btn-block btn-login" value="submit" id="b1">
+                          <i class="newwindow icon"></i>
+						Login
+					</button>
+				</div>
+				
+				
+    }
+           
+
+
+			
+           </div>
+		
+	    
+        </div>
+     
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#h').hide();
+            $('#b1').hide();
+            //$('#result').hide();
+
+            $('#b2').click(function () {
+
+                var userName = $('#name').val();
+
+                //alert('User Name ='+ userName);
+                //$('#checking').show();
+                $.getJSON("/home/CheckUserName?User_Name=" + userName, function (data) {
+                    //$('#checking').hide();
+                    if (data) {
+                        $('#result').text("User Name Exist");
+                        $('#b2').hide();
+                        $('#h').show();
+                        $('#b1').show();
+                        
+
+                    }
+                    else {
+                        $('#result').text("User Name Not Exist");
+                        
+                    }
+                });
+
+            });
+
+        });
+    </script>
+  @Html.ActionLink("ABout Us", "about", "Home")
+    
+    <script src="~/Scripts/main-gsap.js"></script>
+	<script src="~/Scripts/jquery-ui-1.10.3.minimal.min.js"></script>
+	<script src="~/Scripts/bootstrap.js"></script>
+	<script src="~/Scripts/joinable.js"></script>
+	<script src="~/Scripts/resizeable.js"></script>
+	<script src="~/Scripts/neon-api.js"></script>
+	@*<script src="~/Scripts/jquery.validate.min.js"></script>*@
+	<script src="~/Scripts/neon-login.js"></script>
+	<script src="~/Scripts/neon-custom.js"></script>
+	<script src="~/Scripts/neon-demo.js"></script>
+</body>
+</html>

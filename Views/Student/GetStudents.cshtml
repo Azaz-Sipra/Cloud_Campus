@@ -1,0 +1,139 @@
+﻿<hr style="margin-top:0px;" />
+           <h3 style="margin:20px 0px; color:#818da1; font-weight:200;">
+           	<i class="rightarrow icon"></i> 
+				Search Students          </h3>
+
+<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered">
+    	<thead>
+        	
+            	
+            	<th>Search Student By</th>
+            	
+           
+       </thead>
+		<tbody>
+        	
+            	<tr class="gradeA">
+                    <td>
+                    	                    
+                    	<select id="Stud" class="form-control">
+                           <option>Name</option>      
+                           <option>ID</option>
+                            </select>
+                        	
+
+                    </td>
+                    <td align="center"><input type="submit" value="Get Student" id="b2" class="btn btn-info"/></td>
+                </tr>
+            
+		</tbody>
+	</table>
+                      
+                    <div class="input-group" id="dd">
+						
+                   
+                            <input type="text"  name="User_Name" id="name" placeholder="Student Name to search" autocomplete="off" data-mask="name" value=""  />
+				  </div>
+                <div class="input-group">
+						
+                   
+                        <input type="text" class="form-control" name="Id" id="id" placeholder="Student Id to search" autocomplete="off" data-mask="name" value="" required />
+				  </div>
+                    <div class="input-group" id="d">
+						
+                   
+                       <br/> <input type="submit" value="Get Student" id="b3" class="btn btn-info"/><br/>
+				  </div><br/>
+
+	        <table id="tc"  cellpadding="0" cellspacing="0" border="0" class="table table-bordered >
+    	
+        	
+            	
+            	<thead>
+                    <tr class="gradeA">
+                    <td>
+                    	Name
+                    </td>
+                     <td>
+                    	   Email               
+                   </td>
+                    <td>
+                    	    ID              
+                    </td>
+                     
+                </tr>
+
+            	</thead>
+            	
+          
+		<tbody>
+
+		</tbody>
+        	
+            	
+            
+            
+		
+	</table>	
+				
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+        
+        $(document).ready(function () {
+            $('#name').hide();
+            $('#id').hide();
+            $('#d').hide();
+           // $('tc').hide();
+           
+              $('#b2').click(function () {
+                
+                var opt = $('#Stud').val();
+                if (opt == "Name") {
+                    
+                    $('#id').hide();
+                    $('#name').show();
+                   
+                     $('#d').show();
+                     
+                    $('#b3').click(function ()
+                    {
+                        var name = $('#name').val();
+                      
+                        $.getJSON("/Student/getData?User_Name=" + name, function (data) {
+                            //alert(data[0].Name);
+                            $.each(data, function (i, item) {
+                                $('#tc').append("<tr><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Sid + "</td></tr>");
+                                //alert('Id = ' + item.Id + " Name = " + item.Name);
+                            });
+                            
+                            //$('#tc').append("<tr><td>" + item[].Name + "</td><td>" + item.Email + "</td><td>" + item.Sid + "</td></tr>");
+
+                        });
+                    });
+
+                }
+                else {
+                    $('#dd').hide();
+                    
+                    $('#id').show();
+                    $('#d').show();
+                   
+                    
+                    $('#b3').click(function () {
+                        var id = $('#id').val();
+                       // $('#tc tbody').remove();
+                      
+                        $.getJSON("/Student/getDatabyId?Id=" + id, function (item) {
+                            //$('#t11').show();
+                           
+                            $('#tc').append("<tr><td>" + item.Name + "</td><td>" + item.Email + "</td><td>" + item.Sid + "</td></tr>");
+                            //$('#tc tbody').remove();
+                        });
+                    });
+
+                }
+
+            });
+
+        });
+    </script>

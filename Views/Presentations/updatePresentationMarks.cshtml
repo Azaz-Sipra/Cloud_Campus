@@ -1,0 +1,74 @@
+﻿<hr styl="margin-top:0px;" />
+           <h3 style="margin:20px 0px; color:#818da1; font-weight:200;">
+           	<i class="entypo-right-circled"></i> 
+				Manage Prsesentation Marks           </h3>
+
+			<div class="row">
+	<div class="col-md-12">
+    
+    	<!------CONTROL TABS START------->
+		<ul class="nav nav-tabs bordered">
+			<li class="active">
+            	<a href="#list" data-toggle="tab"><i class="entypo-menu"></i> 
+					Manage Marks                    	</a></li>
+		</ul>
+    	<!------CONTROL TABS END------->
+        
+	
+            <!----TABLE LISTING STARTS--->
+            <div class="tab-pane  active" id="list">
+				<center>
+                <form action="aa" method="post" accept-charset="utf-8">                <table border="0" cellspacing="0" cellpadding="0" class="table table-bordered">
+                	<tr>
+                        <td>Presentation Id</td>
+                        <td>Total marks</td>
+                         <td>Quiz Weitage</td>
+                      
+                        
+                	</tr>
+                	<tr>
+                        <td>
+                        	
+                             <input type="text" class="form-control" name="pre" id="pid" placeholder="Presentation Id" autocomplete="off"  value=""  required /> 
+                        </td>
+                        <td>
+                        	<input type="number" class="form-control" name="pre marks" id="qmk" placeholder="Total Presentation marks" autocomplete="off"  value=""   />
+                        </td>
+                        <td>
+                             <input type="number" class="form-control" name="Set Weitage" id="p" placeholder="Set Weitage" autocomplete="off"  value=""  />
+                            </td>
+                     </tr>
+                    <td align="center"><input type="submit" value="Manage Marks" class="btn btn-info"/></td>
+                    </form>
+                    
+                   <table class="table table-bordered" >
+                    <thead>
+                        <tr>
+                            <th>student</th>
+                            <th>mark obtained(out of )</th>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	
+                                 <form action="aaa" method="post" accept-charset="utf-8">							<tr>
+								<td>
+									Ali Ahmad							</td>
+								<td>
+									 <input type="number" value="29" name="mark_obtained" class="form-control"  />
+												
+								</td>
+                              
+							
+                                         <td>
+									  <input type="button" value="Update Marks"  class="btn btn-info"  align="center />
+												
+								</td>
+                                                         </tr>
+                                                           
+                             </form>
+	
+                    </tbody>
+         </table>
+            <script src="~/Scripts/neon-custom.js"></script>
+                      

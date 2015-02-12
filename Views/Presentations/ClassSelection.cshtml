@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "List";
+}
+
+ <hr style="margin-top:0px;" />
+           <h3 style="margin:20px 0px; color:#818da1; font-weight:200;">
+           	<i class="entypo-right-circled"></i> 
+				Manage Presentation Marks           </h3>
+
+			
+	<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered">
+    	<thead>
+        	
+            	
+            	<th>select class</th>
+            	
+           
+       </thead>
+		<tbody>
+        	<form method="post" action="../Presentations/presentationMarks" class="form">
+            	<tr class="gradeA">
+                    <td>
+                    	                    
+                    	<select name="class_id" class="form-control">
+                             @foreach(var cls in Model)
+                               {
+                                <option>@cls.ClassID</option>  
+ 
+                               }           
+                            
+                            </select>	
+
+                    </td>
+                    <td align="center"><input type="submit" value="Manage Marks" class="btn btn-info"/></td>
+                </tr>
+            </form>
+		</tbody>
+	</table>
+  
+	
+   

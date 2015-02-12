@@ -1,0 +1,76 @@
+﻿@model FypTry.Models.Teacher
+
+<hr style="margin-top:0px;" />
+           <h3 style="margin:20px 0px; color:#818da1; font-weight:200;">
+           	<i class="entypo-right-circled"></i> 
+				manage profile           </h3>
+
+			<div class="row">
+	<div class="col-md-12">
+    
+    	<!------CONTROL TABS START------->
+		<ul class="nav nav-tabs bordered">
+
+			<li class="active">
+            	<a href="#list" data-toggle="tab"><i class="rightarrow icon"></i> 
+					manage profile                    	</a></li>
+		</ul>
+    	<!------CONTROL TABS END------->
+        
+	
+		<div class="tab-content">
+        	<!----EDITING FORM STARTS---->
+			<div class="tab-pane box active" id="list" style="padding: 5px">
+                <div class="box-content">
+					            <form action="/Teacher/update" method="post" accept-charset="utf-8" class="form-horizontal form-groups-bordered validate" target="_top" enctype="multipart/form-data">                            <div class="form-group">
+                                <label class="col-sm-3 control-label">name</label>
+                                <div class="col-sm-5">
+                                    @*@Html.TextBoxFor(m => m.Name, new { type="text", name="Tname" ,value="@Model.Name ",@class="form-control"})
+                                    @Html.ValidationMessageFor(m=>m.Name)*@
+                                    <input type="text" class="form-control" name="Tname" value="@Model.Name" />
+                                </div>
+                            </div>  
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">email</label>
+                                <div class="col-sm-5">
+                                   @*	@Html.TextBoxFor(m => m.Email, new { type="email", id = "mail", name="mail",value="@Model.Email ",@class="form-control"})
+                                    @Html.ValidationMessageFor(m=>m.Email)*@
+                                
+                                    <input type="email" class="form-control" name="mail" value="@Model.Email"/>
+                                </div>
+                            </div>
+                                 <div class="form-group">
+                                <label class="col-sm-3 control-label">Photo</label>
+                                <div class="col-sm-5">
+                                    @*<img src="~/images/favicon.png" height="110" alt="">*@
+                         <div class="col-sm-5">
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail" style="width: 100px; height: auto;" data-trigger="fileinput">
+                            <img src="@Model.Pic" alt="..."/>
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px"></div>
+                        <div>
+                            <span class="btn btn-white btn-file">
+                                <span class="fileinput-new">Select image</span>
+                                <span class="fileinput-exists">Change</span>
+                                <input type="file" name="userImage" accept="image/*" value="@Model.Pic">
+                            </span>
+                            <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        </div>
+                    </div>
+                </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-sm-offset-3 col-sm-5">
+                                  <button type="submit" class="btn btn-info">update profile</button>
+                              </div>
+								</div>
+                        </form>
+						                </div>
+			</div>
+            <!----EDITING FORM ENDS--->
+            
+		</div>
+	</div>
+</div>

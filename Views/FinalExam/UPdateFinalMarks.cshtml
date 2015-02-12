@@ -1,0 +1,51 @@
+﻿@model List<FypTry.Models.ExamMark>
+ <hr style="margin-top:0px;" />
+           <h3 style="margin:20px 0px; color:#818da1; font-weight:200;">
+           	<i class="rightarrow icon"></i> 
+				Manage Final Marks           </h3>
+
+			
+
+                   <table class="table table-bordered" >
+                    <thead>
+                        <tr>
+                            <th>student</th>
+                            <th>mark obtained(out of 40)</th>
+                            <td></td>
+                        </tr>
+                    </thead>
+                  
+                    	     @foreach(var q in Model)
+                            {
+                                
+                               <form action="../FinalExam/submitMarks" id="@q.Sid" method="post" accept-charset="utf-8">							<tr>
+								<td>
+                                  @*  @Html.TextBoxFor(m =>m[0].Sid, new { id = "name",value="@q.Sid ",@class="form-control"})*@
+									<input type="text" value="@q.Sid"  name="Sid" class="form-control" required  />	
+
+								</td>
+								<td>
+									 <input type="number" value="@q.FinalMarks"  name="mark_obtained" class="form-control" required  />
+												
+								</td>
+                              
+							 </tr>
+                                   <td><input type="submit" value="Update Marks" class="btn btn-info" /></td>
+                                  </form>
+                              
+                               }
+                          
+	                    
+                      
+        </table>
+         <script type="text/ecmascript">
+             function submitForms() {
+                 
+               
+                 
+                     alert("hi");
+                     document.getElementById("Bcsf11a095").submit();
+                     //$document.getElementById('#Bcsf11a091').submit();
+                 }
+             
+         </script>      

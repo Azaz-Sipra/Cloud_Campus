@@ -1,0 +1,42 @@
+﻿@model List<FypTry.Models.ExamMark>
+ <hr style="margin-top:0px;" />
+           <h3 style="margin:20px 0px; color:#818da1; font-weight:200;">
+           	<i class="rightarrow icon"></i> 
+				Manage Mid Marks           </h3>
+
+			
+
+                   <table class="table table-bordered" >
+                    <thead>
+                        <tr>
+                            <th>student</th>
+                            <th>mark obtained(out of 35)</th>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	    @foreach(var q in Model)
+                            {
+                            
+                               <form action="../MidExam/submitMarks" method="post" accept-charset="utf-8">							<tr>
+								<td>
+									<input type="text" value="@q.Sid"  name="Sid" class="form-control"  />	
+
+								</td>
+								<td>
+									 <input type="number" value="@q.MidMarks"  name="mark_obtained" class="form-control"  />
+												
+								</td>
+                              
+							 </tr>
+                                   <td><input type="submit" value="Update Marks" class="btn btn-info"/></td> 
+                                  </form>
+                               }
+
+                                
+                                   
+                             
+                                    
+                    </tbody>
+                              </table>
+               
